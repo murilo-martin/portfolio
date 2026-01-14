@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+body{
+    overflow-x: hidden;
+}
 :root{
 
     --primary-purple: #4D2FB2;
@@ -48,6 +51,16 @@ button{
     background: none;
     border: none;
 }
+
+.navbar .container-fluid{
+    display: flex;
+    align-items: center;
+    gap: .75em;
+}
+
+.navbar .navbar-toggler{
+    margin-left: .5em;
+}
 li:hover{
 
     transform: translateY(-3px);
@@ -89,7 +102,20 @@ li:hover{
     font-size: 2.2em;
     text-decoration: none;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: .35em;
+    margin: 0;
+    line-height: 1;
+    margin-left: auto;
 
+}
+.nav-title2 svg{
+    display: block;
+}
+.nav-title2 svg{
+    animation: navArrowHint 900ms ease-in-out infinite;
+    transform-origin: center;
 }
 #offcanvasDarkNavbar{
     background-color: transparent;
@@ -192,9 +218,43 @@ li:hover{
 }
 .light-theme .text .nome{
     color: var(--ligth-theme-primary);
+    border-right: 12px solid var(--ligth-theme-primary);
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: mark .5s step-end infinite, write 6s steps(22,end) infinite;
+
+    width: 0ch;
+}
+@keyframes mark{
+
+    50%{
+        border-right-color: transparent;
+    }
+}
+@keyframes write{
+
+    20%{
+        width: 12.9ch;
+    }
+    70%{
+        width: 12.9ch;
+    }
+    85%{
+        width: 0em;
+    }100%{
+        width: 0em;
+    }
 }
 .dark-theme .text .nome{
     color: var(--primary-purple);
+    border-right: 12px solid var(--primary-purple);
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: mark .5s step-end infinite, write 10s steps(22,end) infinite;
+
+    width: 0ch;
 }
 .contat{
     width: 43%;
@@ -207,8 +267,8 @@ li:hover{
 
 .light-theme .backgroundPhoto{
 
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 100em;
   background-size: cover;
   background-position: center center;
   background-repeat: repeat;
@@ -230,14 +290,16 @@ li:hover{
     position: absolute;
     bottom: -8%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0.85);
+    transform-origin: 50% 90%;
+    animation: photoGrow 900ms ease-out both;
     object-fit: cover;
     object-position: center 15%;
 }
 .dark-theme .backgroundPhoto{
 
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   background-size: cover;
   background-position: center center;
   background-repeat: repeat;
@@ -247,4 +309,41 @@ li:hover{
   clip-path: path("M815.5 682Q710 864 517.5 833.5t-329-182Q52 500 168 313t320.5-167Q693 166 807 333t8.5 349Z");
 
 
+}
+
+@keyframes photoGrow{
+    from{
+        transform: translateX(-50%) scale(0.85);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.apresentation{
+
+    position: relative;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    line-height: 4.5em;
+
+}
+
+@keyframes navArrowHint{
+    0%{
+        transform: translateX(0);
+        opacity: .7;
+    }
+    60%{
+        transform: translateX(8px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: .7;
+    }
 }

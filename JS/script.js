@@ -1,6 +1,7 @@
 const themeToggleButton = document.getElementById('change-theme');
 const colorGit = document.getElementById('git');
 const colorLink = document.getElementById('link');
+const btnClose = document.getElementById('btn-close');
 const bodyElement = document.body;
 
 // icons
@@ -20,11 +21,15 @@ function toggleTheme() {
         colorGit.innerHTML = gitWhite
         colorLink.innerHTML = linkWhite
         themeToggleButton.innerHTML = iconSun; 
+       
+        btnClose.classList.replace('btn-close-white','btn-close-dark');
     } else {
         bodyElement.classList.replace('dark-theme', 'light-theme');
         themeToggleButton.innerHTML = iconMoon;
          colorGit.innerHTML = gitBlack
          colorLink.innerHTML = linkBlack
+         btnClose.classList.replace('btn-close-white','btn-close-white');
+         
     }
 }
 
